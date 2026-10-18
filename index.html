@@ -77,7 +77,42 @@ main,footer{position:relative;z-index:1}
 .photo-zoom{will-change:transform}
 @media(max-width:700px){#particles3d{opacity:.35}}
 @media(prefers-reduced-motion:reduce){#particles3d{display:none}}
-</style></head><body><canvas id="particles3d" aria-hidden="true"></canvas>
+
+/* === ENTRADA INMERSIVA 100vh === */
+body.locked{overflow:hidden}
+body:not(.entered) nav{opacity:0;pointer-events:none;transform:translateY(-12px)}
+nav{transition:opacity .6s ease,transform .6s ease}
+#entry{position:fixed;inset:0;z-index:100;background:#000;overflow:hidden;display:flex;align-items:flex-end;justify-content:center;transition:opacity .9s ease,transform .9s ease}
+#entry.leaving{opacity:0;transform:scale(1.08);pointer-events:none}
+#entry .entry-bg{position:absolute;inset:0;overflow:hidden}
+#entry .entry-bg img{width:100%;height:100%;object-fit:cover;object-position:center 22%;animation:walkIn 18s ease-in-out infinite alternate;transform-origin:center 35%}
+@keyframes walkIn{from{transform:scale(1) translateY(0)}to{transform:scale(1.22) translateY(-2%)}}
+#entry .entry-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.18) 0%,transparent 35%,rgba(0,0,0,.55) 62%,rgba(0,0,0,.94) 100%);pointer-events:none}
+#entry .entry-content{position:relative;z-index:2;text-align:center;padding:0 20px 9vh;width:100%;max-width:720px}
+#entry .entry-kicker{letter-spacing:.42em;font-size:12px;font-weight:800;color:#d4af37;text-transform:uppercase}
+#entry h1.entry-title{font-size:clamp(44px,11vw,88px);line-height:.95;margin:10px 0 6px;color:#fff;letter-spacing:.04em;text-shadow:0 6px 30px rgba(0,0,0,.7)}
+#entry .entry-sub{font-size:clamp(17px,4.5vw,24px);font-weight:700;color:#ffe9a8;margin:6px 0 22px}
+#entry .entry-btn{display:inline-block;background:#c1121f;color:#fff;font-size:19px;font-weight:800;padding:16px 34px;border-radius:999px;border:2px solid #d4af37;text-decoration:none;cursor:pointer;box-shadow:0 12px 34px rgba(193,18,31,.55);transition:transform .25s ease,box-shadow .25s ease}
+#entry .entry-btn:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 18px 44px rgba(193,18,31,.7)}
+#entry .entry-hint{margin-top:14px;font-size:13px;color:#e8d9d9;opacity:.85}
+.section-photo{overflow:hidden;border-radius:18px;margin:0 0 18px;border:1px solid rgba(212,175,55,.35);box-shadow:0 14px 34px rgba(0,0,0,.45)}
+.section-photo img{width:100%;height:240px;object-fit:cover;object-position:center 28%;transition:transform .8s ease}
+.section-photo img:hover{transform:scale(1.05)}
+@media(min-width:700px){.section-photo img{height:300px}}
+@media(prefers-reduced-motion:reduce){#entry .entry-bg img{animation:none}}
+</style></head><body class="locked"><canvas id="particles3d" aria-hidden="true"></canvas>
+
+<div id="entry" role="dialog" aria-label="Entrada a WIKIMAN">
+  <div class="entry-bg"><img src="photos/foto-730e8c34.jpg" alt="WIKIMAN" loading="eager"></div>
+  <div class="entry-shade"></div>
+  <div class="entry-content">
+    <div class="entry-kicker">WIKIMAN &bull; Guayaquil</div>
+    <h1 class="entry-title">ENTRA A<br>MI MUNDO</h1>
+    <p class="entry-sub">Para quien ama en silencio &mdash; para quien quiere sanar</p>
+    <button class="entry-btn" onclick="enterWorld()" type="button">Entra &#9654;</button>
+    <p class="entry-hint">Toca Entra para entrar caminando a mi mundo</p>
+  </div>
+</div>
 <nav><a href="#inicio">Inicio</a><a href="#bio">Bio</a><a href="#gusto">Qué escuchar</a><a href="#discografia">Discografía</a><a href="#series">Series</a><a href="#stories">Stories</a><a href="#presskit">Press kit</a><a href="#prensa">Prensa</a><a href="#booking">Booking</a></nav>
 <header class="hero" id="inicio"><div class="hero-photo"><img src="photos/foto-730e8c34.jpg" alt="WIKIMAN en estudio"></div><div class="hero-text"><h1>WIKIMAN</h1><p class="tag">Cantautor y productor de Guayaquil &middot; Latin Pop Rock / pop-urbano</p><p id="rotator">Para quien ama en silencio</p><p>&Aacute;lbum <b>SENTIR</b> (marzo 2026) &middot; Indie v&iacute;a Ditto Music.</p><p><a class="btn" href="https://open.spotify.com/artist/0ui4aMpnSqUplLxyKxzCDA" target="_blank" rel="noopener">Escuchar en Spotify</a><a class="btn gold" href="https://ditto.fm/sentir-wikiman" target="_blank" rel="noopener">SENTIR en todas las plataformas</a></p><p class="small">Qu&eacute;date aqu&iacute;: aqu&iacute; encuentras todo &mdash; m&uacute;sica seg&uacute;n tu gusto, historias, frases para stories, press kit y booking.</p></div></header><main>
 <section class="card reveal tilt" id="bio"><h2>Bio</h2><div class="bio-layout"><figure class="bio-photo"><img src="photos/foto-7f0be817.jpg" alt="WIKIMAN — retrato" loading="lazy"><figcaption>WIKIMAN — Guayaquil</figcaption></figure><div class="bio-text"><p><b>Bio corta:</b> WIKIMAN es Julio Israel Manzo Carvajal, cantautor y productor de Guayaquil. Latin Pop Rock / pop-urbano, independiente vía Ditto Music. Su álbum SENTIR (marzo 2026) convierte el dolor en melodía y el coraje de la vulnerabilidad en canciones para quien ama en silencio.</p><p><b>Bio larga:</b> WIKIMAN escribe y produce desde Guayaquil canciones de amor, desamor y sanación. Su proyecto une balada pop-rock, pop urbano y relato emocional directo: para quien no lo valoraron, para quien fue dejado o engañado, para quien quiere sanar y volver a creer. Como productor trabaja su música en estudio casero, con atención a la voz, al coro y al relato de cada tema. SENTIR es su álbum de referencia, acompañado de una discografía de ocho álbumes y singles y covers que amplían su repertorio para dedicar, reflexionar y sanar.</p><p class="small"><b>Datos rápidos:</b> Guayaquil, Ecuador · Cantautor y productor · Latin Pop Rock / pop-urbano · Indie vía Ditto Music · Álbum SENTIR (marzo 2026) · Instagram @wikiman.oficial</p></div></div></section>
@@ -85,8 +120,8 @@ main,footer{position:relative;z-index:1}
 <section class="card reveal tilt" id="player"><h2>Reproductor — Amor en Silencio</h2><p>En esta versión de GitHub Pages no se sube el MP3. Escucha <b>Amor en Silencio</b> en Spotify.</p><p><a class="btn" href="https://open.spotify.com/artist/0ui4aMpnSqUplLxyKxzCDA" target="_blank" rel="noopener">Escuchar Amor en Silencio en Spotify</a></p><p class="small">Nota: el MP3 completo está en la versión interna de la página. En GitHub solo se enlaza a Spotify.</p><iframe loading="lazy" height="152" src="https://open.spotify.com/embed/album/2LZClkobZfoLNkedUuScoc?utm_source=generator" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe></section>
 </main>
 <main>
-<section class="card reveal tilt" id="gusto"><h2>Qué escuchar según tu gusto</h2><p>Elige cómo te sientes y quédate aquí. Te recomendamos canciones de WIKIMAN con botón Escuchar y el porqué te va a gustar.</p><div id="moods"></div><div id="recs"></div></section>
-<section class="card reveal tilt" id="discografia"><h2>Discografía — 8 álbumes</h2><p>Cada álbum abre en Spotify al dar Escuchar. Los reproductores incrustados son de Spotify.</p>
+<section class="card reveal tilt" id="gusto"><h2>Qué escuchar según tu gusto</h2><div class="section-photo"><img src="photos/foto-37030929.jpg" alt="WIKIMAN" loading="lazy"></div><p>Elige cómo te sientes y quédate aquí. Te recomendamos canciones de WIKIMAN con botón Escuchar y el porqué te va a gustar.</p><div id="moods"></div><div id="recs"></div></section>
+<section class="card reveal tilt" id="discografia"><h2>Discografía — 8 álbumes</h2><div class="section-photo"><img src="photos/foto-530c0374.jpg" alt="WIKIMAN" loading="lazy"></div><p>Cada álbum abre en Spotify al dar Escuchar. Los reproductores incrustados son de Spotify.</p>
 <div class="card reveal"><h3>SENTIR</h3><p>12-mar-2026 · 9 canciones · 40:31</p><p>El álbum de referencia: dolor convertido en melodía, coraje de la vulnerabilidad.</p><p><a class="btn" href="https://open.spotify.com/album/2LZClkobZfoLNkedUuScoc" target="_blank" rel="noopener">Escuchar SENTIR</a></p><iframe loading="lazy" height="352" src="https://open.spotify.com/embed/album/2LZClkobZfoLNkedUuScoc?utm_source=generator"></iframe></div>
 <div class="card reveal"><h3>Sanando Heridas</h3><p>14-abr-2025 · 20 canciones · 1:03</p><p>Para sanar después de que no te valoraron.</p><p><a class="btn" href="https://open.spotify.com/album/4xRsxif41CQvlAmKkKp6Q7" target="_blank" rel="noopener">Escuchar Sanando Heridas</a></p><iframe loading="lazy" height="352" src="https://open.spotify.com/embed/album/4xRsxif41CQvlAmKkKp6Q7?utm_source=generator"></iframe></div>
 <div class="card reveal"><h3>Sueño</h3><p>10-mar-2025 · 17 canciones · 1:01</p><p>Para soñar y volver a creer.</p><p><a class="btn" href="https://open.spotify.com/album/0uHyMo53iYMSncE3tDIsuo" target="_blank" rel="noopener">Escuchar Sueño</a></p><iframe loading="lazy" height="352" src="https://open.spotify.com/embed/album/0uHyMo53iYMSncE3tDIsuo?utm_source=generator"></iframe></div>
@@ -114,7 +149,7 @@ main,footer{position:relative;z-index:1}
 <p><a class="btn" href="https://open.spotify.com/artist/0ui4aMpnSqUplLxyKxzCDA" target="_blank" rel="noopener">Escuchar estas historias</a></p></section>
 </main>
 <main>
-<section class="card reveal tilt" id="stories"><h2>Frase para stories — 100 frases</h2><p>Elige tu estado de ánimo, elige la canción que dedicas y a quién. Te aparece la frase ideal con tu dedicatoria encima. Descarga la story.</p>
+<section class="card reveal tilt" id="stories"><h2>Frase para stories — 100 frases</h2><div class="section-photo"><img src="photos/foto-acc0ea6c.jpg" alt="WIKIMAN" loading="lazy"></div><p>Elige tu estado de ánimo, elige la canción que dedicas y a quién. Te aparece la frase ideal con tu dedicatoria encima. Descarga la story.</p>
 <label>Estado de ánimo</label><select id="moodSel"></select>
 <label>Canción que dedicas</label><select id="songSel"></select>
 <label>¿A quién se la dedicas?</label><input id="toName" placeholder="Ej: Para María">
@@ -122,7 +157,7 @@ main,footer{position:relative;z-index:1}
 <p><span id="counter"></span></p><p><button class="btn dark" onclick="prevStory()">Anterior</button><button class="btn" onclick="nextStory()">Otra frase</button><button class="btn gold" onclick="downloadStory()">Descargar story PNG</button></p>
 <p class="small">La dedicatoria solo se dibuja en la imagen para descargar. No se guarda ni se envía.</p></section>
 <section class="card reveal tilt" id="presskit"><h2>Press kit</h2><p><b>Bio corta:</b> WIKIMAN (Julio Israel Manzo Carvajal), cantautor y productor de Guayaquil. Latin Pop Rock / pop-urbano, indie vía Ditto. Álbum SENTIR (marzo 2026).</p><p><b>Bio larga:</b> Ver sección Bio arriba.</p><p><b>Datos rápidos:</b> Guayaquil · Cantautor y productor · Latin Pop Rock / pop-urbano · Indie vía Ditto · SENTIR marzo 2026 · 8 álbumes en Spotify.</p><p><b>Discografía resumida:</b> SENTIR, Sanando Heridas, Sueño, Sentimiento, Bonita, Falso amor de metaconexión, Silencios, Contrato + singles SWIM, Golden, Dile.</p><p><b>Cobertura de prensa:</b> Ver sección Prensa abajo.</p><p><b>Contacto profesional:</b> Entrevistas, reseñas editoriales, sincronizaciones y colaboraciones.</p><div class="press-photos"><figure style="margin:0"><img src="photos/foto-d6bebc15.jpg" alt="WIKIMAN — foto para prensa" loading="lazy"><figcaption>Fotos para prensa</figcaption></figure><figure style="margin:0"><img src="photos/foto-120d1368.jpg" alt="WIKIMAN — foto para prensa" loading="lazy"><figcaption>Fotos para prensa</figcaption></figure></div><p><a class="btn" href="https://drive.google.com/drive/folders/1T5KmyCs5sPI7pVo4pAdLY3_xLgavWU5e" target="_blank" rel="noopener">Descargar press kit / fotos (Drive)</a><a class="btn gold" href="https://www.instagram.com/wikiman.oficial/" target="_blank" rel="noopener">Instagram @wikiman.oficial</a></p><p class="small">Enlaces oficiales: Spotify, Ditto / SENTIR, Instagram, Drive presskit.</p></section>
-<section class="card reveal tilt" id="prensa"><h2>Prensa</h2><p><b>TJPL News Magazine:</b> Portada y cobertura visual internacional de WIKIMAN (ver versión completa con imagen en la página interna).</p><ul>
+<section class="card reveal tilt" id="prensa"><h2>Prensa</h2><div class="section-photo"><img src="photos/foto-120d1368.jpg" alt="WIKIMAN" loading="lazy"></div><p><b>TJPL News Magazine:</b> Portada y cobertura visual internacional de WIKIMAN (ver versión completa con imagen en la página interna).</p><ul>
 <li><a href="https://www.santananews.com/2026/04/wikiman-lanza-sentir-un-album.html" target="_blank" rel="noopener">Santana News — Wikiman lanza SENTIR</a></li>
 <li><a href="https://www.santananews.com/2026/04/wikiman-nos-habla-de-su-album-sentir.html" target="_blank" rel="noopener">Santana News — Wikiman nos habla de su álbum Sentir</a></li>
 <li><a href="https://www.anrfactory.com/interview-wikiman-identity-reality-and-the-future-of-music/" target="_blank" rel="noopener">A&amp;R Factory — Identity, Reality, and the Future of Music</a></li>
@@ -138,7 +173,7 @@ main,footer{position:relative;z-index:1}
 <li><b>SAYCE</b> — Sociedad de Autores y Compositores del Ecuador. Noticias: <a href="https://sayce.com.ec/noticias/amigxs-con-derechos-licencias-en-gestion/" target="_blank" rel="noopener">Llegaste sin avisar</a> · <a href="https://sayce.com.ec/noticias/amigxs-con-derechos-charlas-y-nuevos-estrenos-musicales/" target="_blank" rel="noopener">Amor en Silencio</a></li>
 <li><b>Coda Music:</b> <a href="https://codamusic.me/artists/wikiman/" target="_blank" rel="noopener">Biografía y discografía</a></li>
 </ul></section>
-<section class="card reveal tilt" id="booking"><h2>Booking / contacto profesional</h2><p>Entrevistas, reseñas editoriales, sincronizaciones y colaboraciones.</p><p><a class="btn" href="https://www.instagram.com/wikiman.oficial/" target="_blank" rel="noopener">Instagram @wikiman.oficial</a><a class="btn dark" href="https://open.spotify.com/artist/0ui4aMpnSqUplLxyKxzCDA" target="_blank" rel="noopener">Spotify</a><a class="btn gold" href="https://ditto.fm/sentir-wikiman" target="_blank" rel="noopener">Ditto / SENTIR</a><a class="btn dark" href="https://drive.google.com/drive/folders/1T5KmyCs5sPI7pVo4pAdLY3_xLgavWU5e" target="_blank" rel="noopener">Press kit (Drive)</a></p></section>
+<section class="card reveal tilt" id="booking"><h2>Booking / contacto profesional</h2><div class="section-photo"><img src="photos/foto-d6bebc15.jpg" alt="WIKIMAN" loading="lazy"></div><p>Entrevistas, reseñas editoriales, sincronizaciones y colaboraciones.</p><p><a class="btn" href="https://www.instagram.com/wikiman.oficial/" target="_blank" rel="noopener">Instagram @wikiman.oficial</a><a class="btn dark" href="https://open.spotify.com/artist/0ui4aMpnSqUplLxyKxzCDA" target="_blank" rel="noopener">Spotify</a><a class="btn gold" href="https://ditto.fm/sentir-wikiman" target="_blank" rel="noopener">Ditto / SENTIR</a><a class="btn dark" href="https://drive.google.com/drive/folders/1T5KmyCs5sPI7pVo4pAdLY3_xLgavWU5e" target="_blank" rel="noopener">Press kit (Drive)</a></p></section>
 </main><main><section class="card reveal tilt" id="fotos"><h2>Fotos</h2><p>Fotos reales de WIKIMAN.</p><div class="gallery-grid"><img src="photos/foto-7f0be817.jpg" alt="WIKIMAN"><img src="photos/foto-69f6b363.jpg" alt="WIKIMAN"><img src="photos/foto-d6bebc15.jpg" alt="WIKIMAN"><img src="photos/foto-120d1368.jpg" alt="WIKIMAN"><img src="photos/foto-530c0374.jpg" alt="WIKIMAN"><img src="photos/foto-37030929.jpg" alt="WIKIMAN"><img src="photos/foto-acc0ea6c.jpg" alt="WIKIMAN"></div></section></main><footer>WIKIMAN · Guayaquil · © 2026 Julio Israel Manzo Carvajal<br><a href="privacidad.html">Política de Privacidad</a> · <a href="terminos.html">Términos de Uso</a> · Sitio seguro con HTTPS</footer>
 <script>
 const rotator=["Para quien ama en silencio","Para quien no lo valoraron","Para quien quiere sanar"];let rI=0;setInterval(()=>{rI=(rI+1)%rotator.length;const el=document.getElementById('rotator');if(el)el.textContent=rotator[rI];},3000);
@@ -274,5 +309,19 @@ renderStory();
     }
   }catch(err){}
 })();
+
+function enterWorld(){
+  var e=document.getElementById("entry");
+  if(!e||e.classList.contains("leaving"))return;
+  e.classList.add("leaving");
+  document.body.classList.add("entered");
+  setTimeout(function(){
+    e.style.display="none";
+    document.body.classList.remove("locked");
+    var t=document.getElementById("inicio");
+    if(t)t.scrollIntoView({behavior:"smooth"});
+  },920);
+}
+document.addEventListener("keydown",function(ev){if(ev.key==="Enter"&&document.body.classList.contains("locked"))enterWorld();});
 </script>
 </body></html>
