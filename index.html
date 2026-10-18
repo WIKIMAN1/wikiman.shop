@@ -96,6 +96,35 @@ main,footer{position:relative;z-index:1}
 .spill-final strong{font-size:clamp(22px,4vw,32px);color:#fff}
 .spill-final span{color:#ffd97a}
 @media(prefers-reduced-motion:reduce){.spill-photo{opacity:1;transform:none}.spill-final{opacity:1;transform:none}}
+
+/* === EFECTOS FUERTES VISIBLES EN MÓVIL === */
+html{scroll-snap-type:y proximity}
+body{scroll-snap-type:y proximity}
+.hero{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:0}
+.hero-photo{max-width:none;border-radius:0}
+.hero-photo img{height:100vh;height:100svh;max-height:100svh;animation:heroZoom 9s ease-in-out infinite alternate !important}
+@keyframes heroZoom{from{transform:scale(1)}to{transform:scale(1.22)}}
+.hero-text h1{font-size:64px !important;line-height:.9;animation:heroTitleIn 1s ease both}
+@keyframes heroTitleIn{from{opacity:0;transform:translateY(40px) scale(.92)}to{opacity:1;transform:none}}
+.hero-text{padding:18px}
+.btn{font-size:19px !important;padding:18px 30px !important;animation:pulseBtn 2s ease-in-out infinite}
+@keyframes pulseBtn{0%,100%{box-shadow:0 10px 30px rgba(193,18,31,.5)}50%{box-shadow:0 0 0 8px rgba(212,175,55,.25),0 10px 40px rgba(193,18,31,.8);transform:scale(1.03)}}
+.btn.gold{animation:pulseGold 2s ease-in-out infinite}
+@keyframes pulseGold{0%,100%{box-shadow:0 10px 30px rgba(212,175,55,.4)}50%{box-shadow:0 0 0 8px rgba(255,43,43,.25),0 10px 40px rgba(212,175,55,.8)}}
+/* Fondos que CAMBIAN al bajar - muy visible */
+section.card:nth-of-type(odd){background:linear-gradient(180deg,#2a0003,#120000) !important}
+section.card:nth-of-type(even){background:linear-gradient(180deg,#1a1200,#0a0a00) !important}
+section.card{scroll-snap-align:start}
+/* Foto GRANDE a pantalla completa arriba de cada sección */
+.section-banner{width:100vw;max-width:none;margin:-26px -26px 18px -26px;height:60vh;min-height:320px;overflow:hidden;position:relative;border-radius:0 0 22px 22px}
+.section-banner img{width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.15)}
+.section-banner::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.75));pointer-events:none}
+/* Café que se riega MUY visible */
+.spill-blob{width:140px !important;height:140px !important;opacity:.95 !important}
+.spill-fill{height:14px !important}
+.spill-photo{transform:translateY(90px) scale(.6) rotate(var(--r,0deg)) !important}
+h2{font-size:34px !important}
+.phrase{font-size:32px !important}
 </style></head><body><canvas id="particles3d" aria-hidden="true"></canvas>
 <nav><a href="#inicio">Inicio</a><a href="#bio">Bio</a><a href="#gusto">Qué escuchar</a><a href="#discografia">Discografía</a><a href="#series">Series</a><a href="#stories">Stories</a><a href="#presskit">Press kit</a><a href="#prensa">Prensa</a><a href="#booking">Booking</a></nav>
 <header class="hero" id="inicio"><div class="hero-photo"><img src="photos/foto-730e8c34.jpg" alt="WIKIMAN en estudio"></div><div class="hero-text"><h1>WIKIMAN</h1><p class="tag">Cantautor y productor de Guayaquil &middot; Latin Pop Rock / pop-urbano</p><p id="rotator">Para quien ama en silencio</p><p>&Aacute;lbum <b>SENTIR</b> (marzo 2026) &middot; Indie v&iacute;a Ditto Music.</p><p><a class="btn" href="https://open.spotify.com/artist/0ui4aMpnSqUplLxyKxzCDA" target="_blank" rel="noopener">Escuchar en Spotify</a><a class="btn gold" href="https://ditto.fm/sentir-wikiman" target="_blank" rel="noopener">SENTIR en todas las plataformas</a></p><p class="small">Qu&eacute;date aqu&iacute;: aqu&iacute; encuentras todo &mdash; m&uacute;sica seg&uacute;n tu gusto, historias, frases para stories, press kit y booking.</p></div></header><main>
@@ -104,8 +133,8 @@ main,footer{position:relative;z-index:1}
 <section class="card reveal tilt" id="player"><h2>Reproductor — Amor en Silencio</h2><p>En esta versión de GitHub Pages no se sube el MP3. Escucha <b>Amor en Silencio</b> en Spotify.</p><p><a class="btn" href="https://open.spotify.com/artist/0ui4aMpnSqUplLxyKxzCDA" target="_blank" rel="noopener">Escuchar Amor en Silencio en Spotify</a></p><p class="small">Nota: el MP3 completo está en la versión interna de la página. En GitHub solo se enlaza a Spotify.</p><iframe loading="lazy" height="152" src="https://open.spotify.com/embed/album/2LZClkobZfoLNkedUuScoc?utm_source=generator" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe></section>
 </main>
 <main>
-<section class="card reveal tilt" id="gusto"><h2>Qué escuchar según tu gusto</h2><p>Elige cómo te sientes y quédate aquí. Te recomendamos canciones de WIKIMAN con botón Escuchar y el porqué te va a gustar.</p><div id="moods"></div><div id="recs"></div></section>
-<section class="card reveal tilt" id="discografia"><h2>Discografía — 8 álbumes</h2><p>Cada álbum abre en Spotify al dar Escuchar. Los reproductores incrustados son de Spotify.</p>
+<section class="card reveal tilt" id="gusto"><h2>Qué escuchar según tu gusto</h2><div class="section-banner"><img src="photos/foto-530c0374.jpg" alt="WIKIMAN" loading="lazy"></div><p>Elige cómo te sientes y quédate aquí. Te recomendamos canciones de WIKIMAN con botón Escuchar y el porqué te va a gustar.</p><div id="moods"></div><div id="recs"></div></section>
+<section class="card reveal tilt" id="discografia"><h2>Discografía — 8 álbumes</h2><div class="section-banner"><img src="photos/foto-37030929.jpg" alt="WIKIMAN" loading="lazy"></div><p>Cada álbum abre en Spotify al dar Escuchar. Los reproductores incrustados son de Spotify.</p>
 <div class="card reveal"><h3>SENTIR</h3><p>12-mar-2026 · 9 canciones · 40:31</p><p>El álbum de referencia: dolor convertido en melodía, coraje de la vulnerabilidad.</p><p><a class="btn" href="https://open.spotify.com/album/2LZClkobZfoLNkedUuScoc" target="_blank" rel="noopener">Escuchar SENTIR</a></p><iframe loading="lazy" height="352" src="https://open.spotify.com/embed/album/2LZClkobZfoLNkedUuScoc?utm_source=generator"></iframe></div>
 <div class="card reveal"><h3>Sanando Heridas</h3><p>14-abr-2025 · 20 canciones · 1:03</p><p>Para sanar después de que no te valoraron.</p><p><a class="btn" href="https://open.spotify.com/album/4xRsxif41CQvlAmKkKp6Q7" target="_blank" rel="noopener">Escuchar Sanando Heridas</a></p><iframe loading="lazy" height="352" src="https://open.spotify.com/embed/album/4xRsxif41CQvlAmKkKp6Q7?utm_source=generator"></iframe></div>
 <div class="card reveal"><h3>Sueño</h3><p>10-mar-2025 · 17 canciones · 1:01</p><p>Para soñar y volver a creer.</p><p><a class="btn" href="https://open.spotify.com/album/0uHyMo53iYMSncE3tDIsuo" target="_blank" rel="noopener">Escuchar Sueño</a></p><iframe loading="lazy" height="352" src="https://open.spotify.com/embed/album/0uHyMo53iYMSncE3tDIsuo?utm_source=generator"></iframe></div>
@@ -133,7 +162,7 @@ main,footer{position:relative;z-index:1}
 <p><a class="btn" href="https://open.spotify.com/artist/0ui4aMpnSqUplLxyKxzCDA" target="_blank" rel="noopener">Escuchar estas historias</a></p></section>
 </main>
 <main>
-<section class="card reveal tilt" id="stories"><h2>Frase para stories — 100 frases</h2><p>Elige tu estado de ánimo, elige la canción que dedicas y a quién. Te aparece la frase ideal con tu dedicatoria encima. Descarga la story.</p>
+<section class="card reveal tilt" id="stories"><h2>Frase para stories — 100 frases</h2><div class="section-banner"><img src="photos/foto-acc0ea6c.jpg" alt="WIKIMAN" loading="lazy"></div><p>Elige tu estado de ánimo, elige la canción que dedicas y a quién. Te aparece la frase ideal con tu dedicatoria encima. Descarga la story.</p>
 <label>Estado de ánimo</label><select id="moodSel"></select>
 <label>Canción que dedicas</label><select id="songSel"></select>
 <label>¿A quién se la dedicas?</label><input id="toName" placeholder="Ej: Para María">
@@ -141,7 +170,7 @@ main,footer{position:relative;z-index:1}
 <p><span id="counter"></span></p><p><button class="btn dark" onclick="prevStory()">Anterior</button><button class="btn" onclick="nextStory()">Otra frase</button><button class="btn gold" onclick="downloadStory()">Descargar story PNG</button></p>
 <p class="small">La dedicatoria solo se dibuja en la imagen para descargar. No se guarda ni se envía.</p></section>
 <section class="card reveal tilt" id="presskit"><h2>Press kit</h2><p><b>Bio corta:</b> WIKIMAN (Julio Israel Manzo Carvajal), cantautor y productor de Guayaquil. Latin Pop Rock / pop-urbano, indie vía Ditto. Álbum SENTIR (marzo 2026).</p><p><b>Bio larga:</b> Ver sección Bio arriba.</p><p><b>Datos rápidos:</b> Guayaquil · Cantautor y productor · Latin Pop Rock / pop-urbano · Indie vía Ditto · SENTIR marzo 2026 · 8 álbumes en Spotify.</p><p><b>Discografía resumida:</b> SENTIR, Sanando Heridas, Sueño, Sentimiento, Bonita, Falso amor de metaconexión, Silencios, Contrato + singles SWIM, Golden, Dile.</p><p><b>Cobertura de prensa:</b> Ver sección Prensa abajo.</p><p><b>Contacto profesional:</b> Entrevistas, reseñas editoriales, sincronizaciones y colaboraciones.</p><div class="press-photos"><figure style="margin:0"><img src="photos/foto-d6bebc15.jpg" alt="WIKIMAN — foto para prensa" loading="lazy"><figcaption>Fotos para prensa</figcaption></figure><figure style="margin:0"><img src="photos/foto-120d1368.jpg" alt="WIKIMAN — foto para prensa" loading="lazy"><figcaption>Fotos para prensa</figcaption></figure></div><p><a class="btn" href="https://drive.google.com/drive/folders/1T5KmyCs5sPI7pVo4pAdLY3_xLgavWU5e" target="_blank" rel="noopener">Descargar press kit / fotos (Drive)</a><a class="btn gold" href="https://www.instagram.com/wikiman.oficial/" target="_blank" rel="noopener">Instagram @wikiman.oficial</a></p><p class="small">Enlaces oficiales: Spotify, Ditto / SENTIR, Instagram, Drive presskit.</p></section>
-<section class="card reveal tilt" id="prensa"><h2>Prensa</h2><p><b>TJPL News Magazine:</b> Portada y cobertura visual internacional de WIKIMAN (ver versión completa con imagen en la página interna).</p><ul>
+<section class="card reveal tilt" id="prensa"><h2>Prensa</h2><div class="section-banner"><img src="photos/foto-120d1368.jpg" alt="WIKIMAN" loading="lazy"></div><p><b>TJPL News Magazine:</b> Portada y cobertura visual internacional de WIKIMAN (ver versión completa con imagen en la página interna).</p><ul>
 <li><a href="https://www.santananews.com/2026/04/wikiman-lanza-sentir-un-album.html" target="_blank" rel="noopener">Santana News — Wikiman lanza SENTIR</a></li>
 <li><a href="https://www.santananews.com/2026/04/wikiman-nos-habla-de-su-album-sentir.html" target="_blank" rel="noopener">Santana News — Wikiman nos habla de su álbum Sentir</a></li>
 <li><a href="https://www.anrfactory.com/interview-wikiman-identity-reality-and-the-future-of-music/" target="_blank" rel="noopener">A&amp;R Factory — Identity, Reality, and the Future of Music</a></li>
@@ -157,7 +186,7 @@ main,footer{position:relative;z-index:1}
 <li><b>SAYCE</b> — Sociedad de Autores y Compositores del Ecuador. Noticias: <a href="https://sayce.com.ec/noticias/amigxs-con-derechos-licencias-en-gestion/" target="_blank" rel="noopener">Llegaste sin avisar</a> · <a href="https://sayce.com.ec/noticias/amigxs-con-derechos-charlas-y-nuevos-estrenos-musicales/" target="_blank" rel="noopener">Amor en Silencio</a></li>
 <li><b>Coda Music:</b> <a href="https://codamusic.me/artists/wikiman/" target="_blank" rel="noopener">Biografía y discografía</a></li>
 </ul></section>
-<section class="card reveal tilt" id="booking"><h2>Booking / contacto profesional</h2><p>Entrevistas, reseñas editoriales, sincronizaciones y colaboraciones.</p><p><a class="btn" href="https://www.instagram.com/wikiman.oficial/" target="_blank" rel="noopener">Instagram @wikiman.oficial</a><a class="btn dark" href="https://open.spotify.com/artist/0ui4aMpnSqUplLxyKxzCDA" target="_blank" rel="noopener">Spotify</a><a class="btn gold" href="https://ditto.fm/sentir-wikiman" target="_blank" rel="noopener">Ditto / SENTIR</a><a class="btn dark" href="https://drive.google.com/drive/folders/1T5KmyCs5sPI7pVo4pAdLY3_xLgavWU5e" target="_blank" rel="noopener">Press kit (Drive)</a></p></section>
+<section class="card reveal tilt" id="booking"><h2>Booking / contacto profesional</h2><div class="section-banner"><img src="photos/foto-d6bebc15.jpg" alt="WIKIMAN" loading="lazy"></div><p>Entrevistas, reseñas editoriales, sincronizaciones y colaboraciones.</p><p><a class="btn" href="https://www.instagram.com/wikiman.oficial/" target="_blank" rel="noopener">Instagram @wikiman.oficial</a><a class="btn dark" href="https://open.spotify.com/artist/0ui4aMpnSqUplLxyKxzCDA" target="_blank" rel="noopener">Spotify</a><a class="btn gold" href="https://ditto.fm/sentir-wikiman" target="_blank" rel="noopener">Ditto / SENTIR</a><a class="btn dark" href="https://drive.google.com/drive/folders/1T5KmyCs5sPI7pVo4pAdLY3_xLgavWU5e" target="_blank" rel="noopener">Press kit (Drive)</a></p></section>
 </main><main><section class="card reveal tilt" id="fotos"><h2>Fotos</h2><p>Fotos reales de WIKIMAN.</p><div class="gallery-grid"><img src="photos/foto-7f0be817.jpg" alt="WIKIMAN"><img src="photos/foto-69f6b363.jpg" alt="WIKIMAN"><img src="photos/foto-d6bebc15.jpg" alt="WIKIMAN"><img src="photos/foto-120d1368.jpg" alt="WIKIMAN"><img src="photos/foto-530c0374.jpg" alt="WIKIMAN"><img src="photos/foto-37030929.jpg" alt="WIKIMAN"><img src="photos/foto-acc0ea6c.jpg" alt="WIKIMAN"></div></section><section class="card" id="escenario"><h2>El escenario de WIKIMAN — Mi mundo en fotos</h2><div class="spill-intro"><p>Sigue bajando. Como café que se riega, mis fotos se van esparciendo y van formando mi escenario, hasta que al final queda completo.</p><p class="spill-hint">↓ Sigue bajando para regar el escenario ↓</p></div><div class="spill-track" id="spillTrack"><div class="spill-sticky"><div class="spill-blob" id="spillBlob" aria-hidden="true"></div><div class="spill-progress" aria-hidden="true"><div class="spill-fill" id="spillFill"></div></div><div class="spill-collage" id="spillCollage">
 <figure class="spill-photo" style="--r:-4deg"><img src="photos/foto-730e8c34.jpg" alt="WIKIMAN — retrato" loading="lazy"><figcaption>El artista</figcaption></figure>
 <figure class="spill-photo" style="--r:3deg"><img src="photos/foto-7f0be817.jpg" alt="WIKIMAN — retrato en traje" loading="lazy"><figcaption>Presencia</figcaption></figure>
@@ -339,6 +368,46 @@ renderStory();
       if(fill) fill.style.width='100%';
     }
   }catch(err){}
+})();
+</script>
+
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+<script>
+/* Lenis smooth scroll + fondos que cambian + parallax fuerte */
+(function(){
+  try{
+    if(typeof Lenis !== 'undefined'){
+      var lenis = new Lenis({duration:1.15, smoothWheel:true});
+      function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
+      requestAnimationFrame(raf);
+      // Conectar Lenis con anclas
+      document.querySelectorAll('a[href^="#"]').forEach(function(a){
+        a.addEventListener('click', function(e){
+          var id = a.getAttribute('href');
+          if(id.length>1){ var el=document.querySelector(id); if(el){ e.preventDefault(); lenis.scrollTo(el, {offset:-70}); } }
+        });
+      });
+    }
+    // Fondos que CAMBIAN de color al bajar - muy visible en body
+    var colors = ['#050505','#2a0003','#120000','#1a1200','#050505','#2a0003'];
+    window.addEventListener('scroll', function(){
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      var p = h>0 ? window.scrollY/h : 0;
+      var idx = Math.min(colors.length-1, Math.floor(p*colors.length));
+      document.body.style.background = colors[idx];
+      document.body.style.transition = 'background .6s ease';
+    }, {passive:true});
+    // Parallax FUERTE en banners
+    window.addEventListener('scroll', function(){
+      document.querySelectorAll('.section-banner img').forEach(function(img){
+        var r = img.getBoundingClientRect();
+        if(r.top < window.innerHeight && r.bottom > 0){
+          var prog = (window.innerHeight - r.top) / (window.innerHeight + r.height);
+          img.style.transform = 'scale(1.15) translateY(' + ((prog-0.5)*60) + 'px)';
+        }
+      });
+    }, {passive:true});
+  }catch(e){}
 })();
 </script>
 </body></html>
