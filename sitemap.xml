@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://wikiman.shop/</loc><lastmod>2026-11-02</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url><loc>https://wikiman.shop/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>1.0</priority>
+    <image:image><image:loc>https://wikiman.shop/photos/foto-7f0be817.jpg</image:loc><image:title>WIKIMAN, cantautor de Guayaquil</image:title><image:caption>Retrato oficial de WIKIMAN, cantautor y productor de Guayaquil, Ecuador.</image:caption></image:image>
+    <image:image><image:loc>https://wikiman.shop/photos/foto-730e8c34.jpg</image:loc><image:title>WIKIMAN, artista</image:title><image:caption>Foto oficial de WIKIMAN.</image:caption></image:image>
+    <image:image><image:loc>https://wikiman.shop/photos/foto-69f6b363.jpg</image:loc><image:title>WIKIMAN en el estudio</image:title><image:caption>WIKIMAN en el estudio de grabación.</image:caption></image:image>
+  </url>
   <url><loc>https://wikiman.shop/privacidad.html</loc><lastmod>2026-11-02</lastmod><priority>0.3</priority></url>
   <url><loc>https://wikiman.shop/terminos.html</loc><lastmod>2026-11-02</lastmod><priority>0.3</priority></url>
 </urlset>
